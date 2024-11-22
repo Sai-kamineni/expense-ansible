@@ -1,0 +1,12 @@
+- name: configure backend server
+  hosts: backend
+  become: yes
+  vars:
+    mysql_root_password: ExpenseApp@1
+    login_host: mysql.daws81s.online
+  tasks:
+  - name: disable default nodejs
+    ansible.builtin.command: dnf module disable nodejs -y
+
+  - name: enable nodejs 20
+    ansible.builtin.command: dnf module enable nodejs:20 -y
