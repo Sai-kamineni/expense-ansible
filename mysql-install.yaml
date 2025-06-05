@@ -5,11 +5,11 @@
     mysql_root_password: ExpenseApp@1
     login_host: mysql.kamineni.site
   tasks:
-  # - name: ansible to install pymysql         #Dependency package
-    # ansible.builtin.pip:
-    #   name:
-    #   - PyMySQL
-    #   executable: pip3.9
+  - name: ansible to install pymysql         #Dependency package
+    ansible.builtin.pip:
+      name:
+      - PyMySQL
+      executable: pip3.9
   - name: install MySQL Server
     ansible.builtin.package:
       name: mysql-server
@@ -33,6 +33,6 @@
     ansible.builtin.debug:
       msg: "{{ mysql_info }}"
   
-  # - name: setup MySQL root password
-  #   ansible.builtin.command: "mysql_secure_installation --set-root-pass {{ mysql_root_password }}"
-  #   when: mysql_info.failed is true
+  - name: setup MySQL root password
+    ansible.builtin.command: "mysql_secure_installation --set-root-pass {{ mysql_root_password }}"
+    when: mysql_info.failed is true
