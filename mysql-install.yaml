@@ -5,7 +5,7 @@
     mysql_root_password: ExpenseApp@1
     login_host: mysql.kamineni.site
   tasks:
-  - name: ansible to install pymysql         #Dependency package
+  # - name: ansible to install pymysql         #Dependency package
     # ansible.builtin.pip:
     #   name:
     #   - PyMySQL
